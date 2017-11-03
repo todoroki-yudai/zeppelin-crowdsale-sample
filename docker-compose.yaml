@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  ico:
+    container_name: ico
+    command: sh -c "while true; do sleep 1; done"
+    build:
+      context: .
+    volumes:
+      - .:/ico
+      - ./node_modules
