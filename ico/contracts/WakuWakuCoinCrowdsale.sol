@@ -16,4 +16,11 @@ contract WakuWakuCoinCrowdsale is Crowdsale {
     return new WakuWakuCoin();
   }
 
+  function isSale() public constant returns (bool) {
+    return now <= endTime && now >= startTime;
+  }
+
+  function timeIntervalToStart() public constant returns (uint256) {
+    return startTime - now;
+  }
 }

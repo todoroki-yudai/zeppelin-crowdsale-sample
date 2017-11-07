@@ -1,10 +1,17 @@
 version: '3.3'
 services:
+  geth:
+    container_name: geth
+    command: --fast --cache=1048 --testnet --rpc --rpcaddr "0.0.0.0" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpccorsdomain '*' --rpcport 8545
+    build:
+      context: ./geth
+    volumes:
+      - ./geth:/root
   ico:
     container_name: ico
     command: sh -c "while true; do sleep 1; done"
     build:
-      context: .
+      context: ./ico
     volumes:
-      - .:/ico
-      - ./node_modules
+      - ./ico:/ico
+      - /ico/node_modules
