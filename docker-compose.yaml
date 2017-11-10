@@ -4,7 +4,7 @@ services:
     container_name: ico
     command: sh -c "while true; do sleep 1; done"
     build:
-      context: .
+      context: ./ico
     volumes:
-      - .:/ico
-      - ./node_modules
+      - ./ico:/ico
+      - /ico/node_modules
